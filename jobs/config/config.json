@@ -1,0 +1,18 @@
+{
+  "kafka" : {
+    "topics":["dbserver1.openmrs.obs","dbserver1.openmrs.encounter"],
+    "config":{
+      "metadata.broker.list": "localhost:9092",
+      "auto.offset.reset": "smallest"
+    }
+  },
+  "spark": {
+    "app_name": "Raw Encounter Pipeline",
+    "master": "local[*]",
+    "jars":["com.datastax.spark:spark-cassandra-connector_2.11:2.0.6",
+             "org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.0"],
+    "configs":{
+          "spark.cassandra.connection.host":"127.0.0.1"
+    }
+  }
+}
